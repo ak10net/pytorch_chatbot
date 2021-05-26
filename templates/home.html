@@ -1,0 +1,155 @@
+ <!DOCTYPE html>
+<html>
+  <title>Insurance chatbot</title>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+      body {
+        font-family: arial, sans-serif;
+      }
+      h1 {
+        background-color: white;
+        display: inline-block;
+        font-size: 3em;
+        margin: 0;
+        padding: 14px;
+      }
+      h3 {
+        color: black;
+        font-size: 20px;
+        margin-top: 3px;
+        text-align: center;
+      }
+      #chatbox {
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+        margin-top: 60px;
+      }
+      #userInput {
+      	margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        margin-top: 60px;
+      }
+      #textInput {
+        width: 90%;
+        border: none;
+        border-bottom: 3px solid black;
+        font-family: arial, sans-serif;
+        font-size: 17px;
+      }
+      .userText {
+        color: white;
+        font-family: arial, sans-serif;
+        font-size: 17px;
+        text-align: right;
+        line-height: 35px;
+      }
+      .userText span {
+        background-color: #41e146;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      .botText {
+        color: white;
+        font-family: arial,sans-serif;
+        font-size: 17px;
+        text-align: left;
+        line-height: 30px;
+      }
+      .botText span {
+        background-color: #417ee1;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      
+      #bodybox {
+		  margin: auto;
+		  max-width: 550px;
+		  font: 15px arial, sans-serif;
+		  background-color: white;
+		  border-style: solid;
+		  border-width: 1px;
+		  padding-top: 20px;
+		  padding-bottom: 25px;
+		  padding-right: 25px;
+		  padding-left: 25px;
+		  box-shadow: 5px 5px 5px grey;
+		  border-radius: 15px;
+		}
+
+	#chatborder {
+	  border-style: solid;
+	  background-color: #f6f9f6;
+	  border-width: 3px;
+	  margin-top: 20px;
+	  margin-bottom: 20px;
+	  margin-left: 20px;
+	  margin-right: 20px;
+	  padding-top: 10px;
+	  padding-bottom: 15px;
+	  padding-right: 20px;
+	  padding-left: 15px;
+	  border-radius: 15px;
+	}
+
+	.chatlog {
+	   font: 15px arial, sans-serif;
+	}
+
+	#chatbox {
+	  font: 17px arial, sans-serif;
+	  height: 22px;
+	  width: 100%;
+	}
+    </style>
+  </head>
+  <body>
+    <img />
+    <center>
+      <h1>
+        Insurance Chatbot
+      </h1>
+      <h4>
+      <p>I can help you with insurance policy, claims, quotes and lot of other services</p>
+      </h4>
+    </center>    
+    <div id='bodybox'>
+  	<div id='chatborder'>
+    	<div id="chatbox">
+          <p class="botText">
+            <span>Hi!</span>
+          </p>
+        </div>     
+  	</div>
+  	<div id="userInput">
+          <input id="textInput" type="text" name="msg" placeholder="How can i help you ?" onfocus="placeHolder()">
+        </div>  
+  	</div>
+    <script>
+        function getBotResponse() {
+          var rawText = $("#textInput").val();
+          var userHtml = '<p class="userText"><span>' + rawText + "</span></p>";
+          $("#textInput").val("");
+          $("#chatborder").append(userHtml);
+          document
+            .getElementById("userInput")
+            .scrollIntoView({ block: "start", behavior: "smooth" });
+          $.get("/get", { msg: rawText }).done(function(data) {
+            var botHtml = '<p class="botText"><span>' + data + "</span></p>";
+            $("#chatborder").append(botHtml);
+            document
+              .getElementById("userInput")
+              .scrollIntoView({ block: "start", behavior: "smooth" });
+          });
+        }
+        $("#textInput").keypress(function(e) {
+          if (e.which == 13) {
+            getBotResponse();
+          }
+        });
+      </script>
+    </div>
+  </body>
+</html>

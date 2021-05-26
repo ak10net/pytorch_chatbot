@@ -1,0 +1,105 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hey",
+        "Hello",
+        "Hola"
+      ],
+      "responses": [
+        "Hey :-)",
+        "Hi there, what can I do for you?",
+        "Hi there, how can I help?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "See you later", "Goodbye"],
+      "responses": [
+        "Happy to be of help!",
+        "Have a nice day!",
+        "Bye!"
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
+      "responses": ["Happy to help!", "My pleasure"]
+    },
+    {
+      "tag": "health",
+      "patterns": [
+        "What health insurance do you offer?",
+        "I want health insurnace?"
+      ],
+      "responses": [
+        "We offer individual and family health insurance",
+        "We have multiple products in health insurance"
+      ]
+    },
+    {
+      "tag": "term",
+      "patterns": [
+        "What term insurance do you offer?",
+        "I want term insurnace?"
+      ],
+      "responses": [
+        "We offer from 20 upto 40 years of term insurance",
+        "We have 3 products in term insurance"
+      ]
+    },
+    {
+      "tag": "payments",
+      "patterns": [
+        "Do you take credit cards?",
+        "Do you accept Mastercard?",
+        "Can I pay with Paypal?",
+        "Are you cash only?"
+      ],
+      "responses": [
+        "We accept VISA, Mastercard and Paypal",
+        "We accept most major credit cards, and Paypal"
+      ]
+    },
+    {
+      "tag": "claim",
+      "patterns": [
+        "How long does claim take?",
+        "i want to claim insurance!",
+        "When do I get my claim money?"
+      ],
+      "responses": [
+        "Claim takes 2-4 weeks for disbursal",
+        "You can provide me with ticket number"
+      ]
+    },
+    {
+      "tag": "personal",
+      "patterns": [
+        "I want to update my contact number",
+        "I want to change my nominee!",
+        "I want to change my address!"
+      ],
+      "responses": [
+        "You can go to update personal details page https://insurance.kotak.com/",
+        "Should i connect with you with Agent?.",
+        "Sure, Please provide me your details"
+      ]
+    },
+    {
+      "tag": "documents",
+      "patterns": [
+        "I want to tax reciept",
+        "I want to policy details",
+        "I want to policy document"
+      ],
+      "responses": [
+        "You can go to downloads sections of website",
+        "Sure, Please give me policy number",
+        "Sure, I will fetch that for you!"
+      ]
+    }
+  ]
+}
